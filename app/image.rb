@@ -13,4 +13,8 @@ class Image
       puts
     end
   end
+
+  def color_pixel(x, y, color)
+    @data[y - 1][x - 1] = color
+  end
 end

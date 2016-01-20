@@ -4,6 +4,7 @@ require './app/command/exit'
 require './app/command/invalid'
 require './app/command/new_image'
 require './app/command/show_image'
+require './app/command/color_pixel'
 require './app/command_parser'
 require './app/image'
 

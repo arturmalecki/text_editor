@@ -16,10 +16,8 @@ describe CommandParser do
       expect(command_parser.parse('I 12 34')).to be_a_kind_of(Command::NewImage)
     end
 
-    it 'should pass params to Command::NewImage' do
-      new_image_command = command_parser.parse('I 12 34')
-      expect(new_image_command.instance_variable_get(:@x)).to eql(12)
-      expect(new_image_command.instance_variable_get(:@y)).to eql(34)
+    it 'should return Command::ColorPixel for I command' do
+      expect(command_parser.parse('L 1 2 G')).to be_a_kind_of(Command::ColorPixel)
     end
   end
 end
