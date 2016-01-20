@@ -1,20 +1,11 @@
 module Command
   class NewImage
+    include Commandable
+
     def initialize(options = {})
       @x = options[:x]
       @y = options[:y]
       @image = options[:image]
-    end
-
-    def message
-    end
-
-    def exit?
-      false
-    end
-
-    def valid?
-      true
     end
 
     def run

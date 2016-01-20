@@ -1,18 +1,13 @@
 module Command
   class Exit
+    include Commandable
+
     def message
       'Exit'
     end
 
     def exit?
       true
-    end
-
-    def valid?
-      true
-    end
-
-    def run
     end
   end
 end
