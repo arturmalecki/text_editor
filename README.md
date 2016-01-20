@@ -1,3 +1,7 @@
 ## How to run
 
-    ruby app.rb
+    ruby start.rb
+
+## Tests
+
+    bundle exec rake
