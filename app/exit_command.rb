@@ -1,7 +1,4 @@
 class ExitCommand
-  def initialize
-  end
-
   def message
     'Exit'
   end
@@ -12,5 +9,8 @@ class ExitCommand
 
   def valid?
     true
+  end
+
+  def run
   end
 end

@@ -10,4 +10,7 @@ class InvalidCommand
   def valid?
     false
   end
+
+  def run
+  end
 end

@@ -1,3 +1,3 @@
 require './app'
 
-App.new.ping
+App.new.start
