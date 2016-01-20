@@ -9,6 +9,7 @@ class Core
       print '> '
       input = gets.chomp
       command = @command_parser.parse(input)
+      puts "< #{command.message}"
     end while !command.exit?
   end
 end

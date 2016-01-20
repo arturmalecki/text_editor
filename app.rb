@@ -1,5 +1,6 @@
 require './app/core'
-require './app/command'
+require './app/exit_command'
+require './app/invalid_command'
 require './app/command_parser'
 require './app/board'
 

@@ -1,5 +1,9 @@
 class CommandParser
   def parse(command)
-    Command.new(command: command)
+    if(command == 'X')
+      ExitCommand.new
+    else
+      InvalidCommand.new
+    end
   end
 end
