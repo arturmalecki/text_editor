@@ -1,8 +1,8 @@
-class NewBoardCommand
+class NewImageCommand
   def initialize(options = {})
     @x = options[:x]
     @y = options[:y]
-    @board = options[:board]
+    @image = options[:image]
   end
 
   def message
@@ -17,6 +17,6 @@ class NewBoardCommand
   end
 
   def run
-    @board.create(@x, @y)
+    @image.create(@x, @y)
   end
 end

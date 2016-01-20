@@ -1,7 +1,7 @@
 class Core
   def initialize
-    @board = Board.new
-    @command_parser = CommandParser.new(board: @board)
+    @image = Image.new
+    @command_parser = CommandParser.new(image: @image)
   end
 
   def run_console

@@ -1,4 +1,4 @@
-class Board
+class Image
   def initialize
     @data = nil
   end

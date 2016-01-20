@@ -1,12 +1,12 @@
 class CommandParser
   def initialize(options = {})
-    @board = options[:board]
+    @image = options[:image]
   end
   def parse(command)
     if(command == 'X')
       ExitCommand.new
     elsif(command =~ /^I\ \d+\ \d+$/)
-      create_new_board_command(command)
+      create_new_image_command(command)
     else
       InvalidCommand.new
     end
@@ -14,12 +14,12 @@ class CommandParser
 
   private
 
-  def create_new_board_command(command)
+  def create_new_image_command(command)
     _c = command.split(' ')
-    NewBoardCommand.new(
+    NewImageCommand.new(
       x: _c[1].to_i,
       y: _c[2].to_i,
-      board: @board
+      image: @image
     )
   end
 end
