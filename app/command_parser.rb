@@ -5,6 +5,8 @@ class CommandParser
   def parse(command)
     if(command == 'X')
       ExitCommand.new
+    elsif(command == 'S')
+      ShowImageCommand.new(image: @image)
     elsif(command =~ /^I\ \d+\ \d+$/)
       create_new_image_command(command)
     else
