@@ -4,13 +4,13 @@ class CommandParser
   end
   def parse(command)
     if(command == 'X')
-      ExitCommand.new
+      Command::Exit.new
     elsif(command == 'S')
-      ShowImageCommand.new(image: @image)
+      Command::ShowImage.new(image: @image)
     elsif(command =~ /^I\ \d+\ \d+$/)
       create_new_image_command(command)
     else
-      InvalidCommand.new
+      Command::Invalid.new
     end
   end
 
@@ -18,7 +18,7 @@ class CommandParser
 
   def create_new_image_command(command)
     _c = command.split(' ')
-    NewImageCommand.new(
+    Command::NewImage.new(
       x: _c[1].to_i,
       y: _c[2].to_i,
       image: @image

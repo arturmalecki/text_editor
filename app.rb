@@ -1,8 +1,8 @@
 require './app/core'
-require './app/exit_command'
-require './app/invalid_command'
-require './app/new_image_command'
-require './app/show_image_command'
+require './app/command/exit'
+require './app/command/invalid'
+require './app/command/new_image'
+require './app/command/show_image'
 require './app/command_parser'
 require './app/image'
 
