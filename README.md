@@ -2,6 +2,6 @@
 
     ruby start.rb
 
-## Tests
+## How to test
 
     bundle exec rake
