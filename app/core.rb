@@ -10,7 +10,13 @@ class Core
       input = gets.chomp
       command = @command_parser.parse(input)
       command.run
-      puts "< #{command.message}"
+      show_command_message(command)
     end while !command.exit?
+  end
+
+  private
+
+  def show_command_message(command)
+    puts "< #{command.message}" if command.message
   end
 end
