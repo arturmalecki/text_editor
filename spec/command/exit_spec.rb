@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Command::Exit do
-  let(:exit) { Command::Exit.new }
+  let(:image) { double :image }
+  let(:exit) { Command::Exit.new(image) }
   describe '#exit?' do
     it { expect(exit.exit?).to be(true) }
   end

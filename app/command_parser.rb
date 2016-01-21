@@ -1,16 +1,40 @@
 class CommandParser
+  PARSER = {
+    'X' => {
+      pattern: /^X$/,
+      _class: Command::Exit
+    },
+    'S' => {
+      pattern: /^S$/,
+      _class: Command::ShowImage
+    },
+    'I' => {
+      pattern: /^I\ \d+\ \d+$/,
+      _class: Command::NewImage
+    },
+    'L' => {
+      pattern: /^L\ \d+\ \d+\ [A-Z]{1}$/,
+      _class: Command::ColorPixel
+    },
+    'V' => {
+      pattern: /^V\ \d+\ \d+\ \d+\ [A-Z]{1}$/,
+      _class: Command::DrawVerticalSegment
+    },
+    'H' => {
+      pattern: /^H\ \d+\ \d+\ \d+\ [A-Z]{1}$/,
+      _class: Command::DrawHorizontalSegment
+    }
+  }
+
   def initialize(options = {})
     @image = options[:image]
   end
-  def parse(command)
-    if(command == 'X')
-      Command::Exit.new
-    elsif(command == 'S')
-      Command::ShowImage.new(image: @image)
-    elsif(command =~ /^I\ \d+\ \d+$/)
-      create_new_image_command(command)
-    elsif(command =~ /^L\ \d+\ \d+\ [A-Z]{1}$/)
-      color_pixel_command(command)
+
+  def parse(input)
+    command, params = split_input(input)
+    parser = PARSER[command]
+    if(!parser.nil? && input =~ parser[:pattern])
+      parser[:_class].new(@image, params)
     else
       Command::Invalid.new
     end
@@ -18,22 +42,8 @@ class CommandParser
 
   private
 
-  def create_new_image_command(command)
-    _c = command.split(' ')
-    Command::NewImage.new(
-      x: _c[1].to_i,
-      y: _c[2].to_i,
-      image: @image
-    )
-  end
-
-  def color_pixel_command(command)
-    _c = command.split(' ')
-    Command::ColorPixel.new(
-      x: _c[1].to_i,
-      y: _c[2].to_i,
-      color: _c[3],
-      image: @image
-    )
+  def split_input(input)
+    _input = input.split(' ')
+    [_input.first, _input[1..-1]]
   end
 end

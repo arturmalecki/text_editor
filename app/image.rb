@@ -17,4 +17,18 @@ class Image
   def color_pixel(x, y, color)
     @data[y - 1][x - 1] = color
   end
+
+  def draw_vertical_segment(x, y1, y2, color)
+    min_y, max_y = y1 >= y2 ? [y2, y1] : [y1, y2]
+    min_y.upto(max_y).each do |y|
+      color_pixel(x, y, color)
+    end
+  end
+
+  def draw_horizontal_segment(x1, x2, y, color)
+    min_x, max_x = x1 >= x2 ? [x2, x1] : [x1, x2]
+    min_x.upto(max_x).each do |x|
+      color_pixel(x, y, color)
+    end
+  end
 end

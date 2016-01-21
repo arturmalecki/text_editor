@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Command::ColorPixel do
   let(:image) { Image.new }
-  let(:new_image) { Command::ColorPixel.new(x: 5, y: 10, color: 'G', image: image) }
+  let(:new_image) { Command::ColorPixel.new(image, [5, 10, 'G']) }
   describe '#exit?' do
     it { expect(new_image.exit?).to be(false) }
   end

@@ -2,10 +2,10 @@ module Command
   class NewImage
     include Commandable
 
-    def initialize(options = {})
-      @x = options[:x]
-      @y = options[:y]
-      @image = options[:image]
+    def initialize(image, params)
+      @image = image
+      @x = params[0].to_i
+      @y = params[1].to_i
     end
 
     def run

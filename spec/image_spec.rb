@@ -14,4 +14,22 @@ describe Image do
       expect { image.draw }.to output("OO\nOO\nOO\n").to_stdout
     end
   end
+
+  describe '#draw_horizontal_segment' do
+    it 'should draw image' do
+      image.create(5, 5)
+      image.draw_horizontal_segment(2, 4, 1, 'W')
+
+      expect { image.draw }.to output("OWWWO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\n").to_stdout
+    end
+  end
+
+  describe '#draw_vertical_segment' do
+    it 'should draw image' do
+      image.create(5, 5)
+      image.draw_vertical_segment(1, 2, 5, 'W')
+
+      expect { image.draw }.to output("OOOOO\nWOOOO\nWOOOO\nWOOOO\nWOOOO\n").to_stdout
+    end
+  end
 end

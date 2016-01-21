@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Command::ShowImage do
   let(:image) { Image.new }
-  let(:show_image) { Command::ShowImage.new(x: 5, y: 10, image: image) }
+  let(:show_image) { Command::ShowImage.new(image, [5, 10]) }
   describe '#exit?' do
     it { expect(show_image.exit?).to be(false) }
   end

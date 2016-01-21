@@ -2,6 +2,9 @@ module Command
   class Exit
     include Commandable
 
+    def initialize(image, params = {})
+    end
+
     def message
       'Exit'
     end
