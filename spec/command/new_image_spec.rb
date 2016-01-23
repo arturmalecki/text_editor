@@ -2,20 +2,31 @@ require 'spec_helper'
 
 describe Command::NewImage do
   let(:image) { Image.new }
-  let(:new_image) { Command::NewImage.new(image, [5, 10]) }
+  let(:command) { Command::NewImage.new(image, [5, 10]) }
+
+  describe 'Validations' do
+    context 'command with invalid x and y' do
+      let(:command) { Command::NewImage.new(image, [0, 0]) }
+
+      it 'should fail validation' do
+        command.valid?
+        expect(command.error_messages).to eql 'X should be between 1 and 250, Y should be between 1 and 250'
+      end
+    end
+  end
 
   describe '#exit?' do
-    it { expect(new_image.exit?).to be(false) }
+    it { expect(command.exit?).to be(false) }
   end
 
   describe '#valid?' do
-    it { expect(new_image.valid?).to be(true) }
+    it { expect(command.valid?).to be(true) }
   end
 
   describe '#run' do
     it 'should run create method on Image object' do
       expect(image).to receive(:create).with(5, 10)
-      new_image.run
+      command.run
     end
   end
 end
