@@ -4,6 +4,10 @@ class CommandParser
       pattern: /^X$/,
       _class: Command::Exit
     },
+    '?' => {
+      pattern: /^\?$/,
+      _class: Command::Help
+    },
     'S' => {
       pattern: /^S$/,
       _class: Command::ShowImage
