@@ -27,5 +27,9 @@ describe CommandParser do
     it 'should return Command::Clear for C command' do
       expect(command_parser.parse('C')).to be_a_kind_of(Command::Clear)
     end
+
+    it 'should trim extra spaces from command' do
+      expect(command_parser.parse('    F    1  2   G      ')).to be_a_kind_of(Command::Fill)
+    end
   end
 end

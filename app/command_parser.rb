@@ -39,9 +39,9 @@ class CommandParser
   end
 
   def parse(input)
-    command, params = split_input(input)
+    command, params = split_input(strip_input(input))
     parser = PARSER[command]
-    if(!parser.nil? && input =~ parser[:pattern])
+    if(!parser.nil? && strip_input(input) =~ parser[:pattern])
       parser[:_class].new(@image, params)
     else
       Command::Invalid.new
@@ -53,5 +53,9 @@ class CommandParser
   def split_input(input)
     _input = input.split(' ')
     [_input.first, _input[1..-1]]
+  end
+
+  def strip_input(input)
+    input.strip.gsub(/\s+/, ' ')
   end
 end
