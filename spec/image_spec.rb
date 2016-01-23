@@ -32,4 +32,14 @@ describe Image do
       expect { image.draw }.to output("OOOOO\nWOOOO\nWOOOO\nWOOOO\nWOOOO\n").to_stdout
     end
   end
+
+  describe '#clear' do
+    it 'should draw image' do
+      image.create(5, 5)
+      image.color_pixel(3, 3, 'W')
+      image.clear
+
+      expect { image.draw }.to output("OOOOO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\n").to_stdout
+    end
+  end
 end

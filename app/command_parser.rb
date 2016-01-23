@@ -8,6 +8,10 @@ class CommandParser
       pattern: /^S$/,
       _class: Command::ShowImage
     },
+    'C' => {
+      pattern: /^C$/,
+      _class: Command::Clear
+    },
     'I' => {
       pattern: /^I\ \d+\ \d+$/,
       _class: Command::NewImage

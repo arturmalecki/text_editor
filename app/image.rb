@@ -47,4 +47,12 @@ class Image
       color_pixel(x, y, color)
     end
   end
+
+  def clear
+    1.upto(@y_size).each do |y|
+      1.upto(@x_size).each do |x|
+        color_pixel(x, y, 'O')
+      end
+    end
+  end
 end
