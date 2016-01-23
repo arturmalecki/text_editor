@@ -1,10 +1,26 @@
 class Image
   def initialize
     @data = nil
+    @x_size = nil
+    @y_size = nil
   end
 
   def create(x, y)
+    @x_size = x
+    @y_size = y
     @data = Array.new(y) { Array.new(x, 'O') }
+  end
+
+  def created?
+    !@data.nil?
+  end
+
+  def x_size
+    @x_size
+  end
+
+  def y_size
+    @y_size
   end
 
   def draw

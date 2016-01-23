@@ -2,19 +2,20 @@ require 'spec_helper'
 
 describe Command::ShowImage do
   let(:image) { Image.new }
-  let(:show_image) { Command::ShowImage.new(image, [5, 10]) }
-  describe '#exit?' do
-    it { expect(show_image.exit?).to be(false) }
+  let(:command) { Command::ShowImage.new(image, [5, 10]) }
+
+  describe 'Validations' do
+    include_examples 'validate image'
   end
 
-  describe '#invalid?' do
-    it { expect(show_image.valid?).to be(true) }
+  describe '#exit?' do
+    it { expect(command.exit?).to be(false) }
   end
 
   describe '#run' do
     it 'should run create method on Image object' do
       expect(image).to receive(:draw)
-      show_image.run
+      command.run
     end
   end
 end

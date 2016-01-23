@@ -2,12 +2,12 @@ module Command
   class Invalid
     include Commandable
 
-    def message
-      'Invalid command'
-    end
-
     def valid?
       false
+    end
+
+    def error_messages
+      'Invalid command'
     end
   end
 end

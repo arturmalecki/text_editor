@@ -9,7 +9,11 @@ class Core
       print '> '
       input = gets.chomp
       command = @command_parser.parse(input)
-      command.run
+      if command.valid?
+        command.run
+      else
+        puts "< ERROR: #{command.error_messages}"
+      end
       show_command_message(command)
     end while !command.exit?
   end

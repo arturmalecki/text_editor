@@ -12,4 +12,7 @@ module Commandable
 
   def run
   end
+
+  def error_messages
+  end
 end

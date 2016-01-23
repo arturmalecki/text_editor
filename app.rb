@@ -1,5 +1,6 @@
 require './app/core'
 require './app/commandable'
+require './app/validateable'
 require './app/command/exit'
 require './app/command/invalid'
 require './app/command/new_image'
