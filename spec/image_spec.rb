@@ -42,4 +42,14 @@ describe Image do
       expect { image.draw }.to output("OOOOO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\n").to_stdout
     end
   end
+
+  describe '#fill' do
+    it 'should draw image' do
+      image.create(5, 5)
+      image.draw_horizontal_segment(1, 5, 3, 'W')
+      image.fill(2, 2, 'G')
+
+      expect { image.draw }.to output("GGGGG\nGGGGG\nWWWWW\nOOOOO\nOOOOO\n").to_stdout
+    end
+  end
 end

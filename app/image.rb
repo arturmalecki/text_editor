@@ -55,4 +55,26 @@ class Image
       end
     end
   end
+
+  def fill(x, y, new_color, old_color = nil)
+    old_color = get_pixel(x, y) if old_color.nil?
+    if(x < 1 || y < 1 || x > @x_size || y > @y_size)
+      return
+    else
+      if(get_pixel(x, y) == old_color)
+        color_pixel(x, y, new_color)
+
+        fill(x, y - 1, new_color, old_color)
+        fill(x, y + 1, new_color, old_color)
+        fill(x - 1, y, new_color, old_color)
+        fill(x + 1, y, new_color, old_color)
+      end
+    end
+  end
+
+  private
+
+  def get_pixel(x, y)
+    @data[y - 1][x - 1]
+  end
 end

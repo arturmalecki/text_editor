@@ -16,8 +16,16 @@ describe CommandParser do
       expect(command_parser.parse('I 12 34')).to be_a_kind_of(Command::NewImage)
     end
 
-    it 'should return Command::ColorPixel for I command' do
+    it 'should return Command::ColorPixel for L command' do
       expect(command_parser.parse('L 1 2 G')).to be_a_kind_of(Command::ColorPixel)
+    end
+
+    it 'should return Command::Fill for I command' do
+      expect(command_parser.parse('F 1 2 G')).to be_a_kind_of(Command::Fill)
+    end
+
+    it 'should return Command::Clear for C command' do
+      expect(command_parser.parse('C')).to be_a_kind_of(Command::Clear)
     end
   end
 end

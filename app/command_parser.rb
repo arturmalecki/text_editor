@@ -27,6 +27,10 @@ class CommandParser
     'H' => {
       pattern: /^H\ \d+\ \d+\ \d+\ [A-Z]{1}$/,
       _class: Command::DrawHorizontalSegment
+    },
+    'F' => {
+      pattern: /^F\ \d+\ \d+\ [A-Z]{1}$/,
+      _class: Command::Fill
     }
   }
 
